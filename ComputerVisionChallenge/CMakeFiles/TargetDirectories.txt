@@ -1,0 +1,1 @@
+/home/alishak/Projects/ComputerVisionChallenge/ComputerVisionChallenge/CMakeFiles/ComputerVisionChallenge.dir

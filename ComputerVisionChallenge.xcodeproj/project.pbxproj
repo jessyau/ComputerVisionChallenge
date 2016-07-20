@@ -680,6 +680,7 @@
 				4C35D1701A928DEC002D5CD6 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

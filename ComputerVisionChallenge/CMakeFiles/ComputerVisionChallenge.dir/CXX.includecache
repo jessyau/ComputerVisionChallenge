@@ -6,17 +6,17 @@
 
 #IncludeRegexTransform: 
 
-/home/alishak/Projects/ComputerVisionChallenge/ComputerVisionChallenge/hough.cpp
+/Users/Jessica/Documents/ComputerVisionChallenge/ComputerVisionChallenge/hough.cpp
 iostream
 -
 stdio.h
 -
 opencv2/imgcodecs.hpp
-/home/alishak/Projects/ComputerVisionChallenge/ComputerVisionChallenge/opencv2/imgcodecs.hpp
+/Users/Jessica/Documents/ComputerVisionChallenge/ComputerVisionChallenge/opencv2/imgcodecs.hpp
 opencv2/highgui/highgui.hpp
-/home/alishak/Projects/ComputerVisionChallenge/ComputerVisionChallenge/opencv2/highgui/highgui.hpp
+/Users/Jessica/Documents/ComputerVisionChallenge/ComputerVisionChallenge/opencv2/highgui/highgui.hpp
 opencv2/imgproc/imgproc.hpp
-/home/alishak/Projects/ComputerVisionChallenge/ComputerVisionChallenge/opencv2/imgproc/imgproc.hpp
+/Users/Jessica/Documents/ComputerVisionChallenge/ComputerVisionChallenge/opencv2/imgproc/imgproc.hpp
 
 /usr/local/include/opencv2/core.hpp
 opencv2/core/cvdef.h

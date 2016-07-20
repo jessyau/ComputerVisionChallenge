@@ -2,4 +2,198 @@
 <Bucket
    type = "1"
    version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "../sailcode/compvi/hough.cpp"
+            timestampString = "451947486.497907"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "51"
+            endingLineNumber = "51"
+            landmarkName = "HoughDetection(const Mat&amp; src_gray, const Mat&amp; src_display, int cannyThreshold, int accumulatorThreshold)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "ComputerVisionChallenge/main.cpp"
+            timestampString = "453832787.556886"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "159"
+            endingLineNumber = "159"
+            landmarkName = "main (void)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "ComputerVisionChallenge/main.cpp"
+            timestampString = "453832787.556886"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "163"
+            endingLineNumber = "163"
+            landmarkName = "main (void)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "ComputerVisionChallenge/main.cpp"
+            timestampString = "453832787.556886"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "166"
+            endingLineNumber = "166"
+            landmarkName = "main (void)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "ComputerVisionChallenge/main.cpp"
+            timestampString = "453824482.521522"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "50"
+            endingLineNumber = "50"
+            landmarkName = "drawGoodMatches( const Mat&amp; img1, const Mat&amp; img2, const std::vector&lt;KeyPoint&gt;&amp; keypoints1, const std::vector&lt;KeyPoint&gt;&amp; keypoints2, std::vector&lt;DMatch&gt;&amp; matches, std::vector&lt;Point2f&gt;&amp; scene_corners_ )"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "ComputerVisionChallenge/main.cpp"
+            timestampString = "453824482.521522"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "51"
+            endingLineNumber = "51"
+            landmarkName = "drawGoodMatches( const Mat&amp; img1, const Mat&amp; img2, const std::vector&lt;KeyPoint&gt;&amp; keypoints1, const std::vector&lt;KeyPoint&gt;&amp; keypoints2, std::vector&lt;DMatch&gt;&amp; matches, std::vector&lt;Point2f&gt;&amp; scene_corners_ )"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "ComputerVisionChallenge/main.cpp"
+            timestampString = "453824482.521522"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "49"
+            endingLineNumber = "49"
+            landmarkName = "drawGoodMatches( const Mat&amp; img1, const Mat&amp; img2, const std::vector&lt;KeyPoint&gt;&amp; keypoints1, const std::vector&lt;KeyPoint&gt;&amp; keypoints2, std::vector&lt;DMatch&gt;&amp; matches, std::vector&lt;Point2f&gt;&amp; scene_corners_ )"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "ComputerVisionChallenge/main.cpp"
+            timestampString = "453824482.521522"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "48"
+            endingLineNumber = "48"
+            landmarkName = "drawGoodMatches( const Mat&amp; img1, const Mat&amp; img2, const std::vector&lt;KeyPoint&gt;&amp; keypoints1, const std::vector&lt;KeyPoint&gt;&amp; keypoints2, std::vector&lt;DMatch&gt;&amp; matches, std::vector&lt;Point2f&gt;&amp; scene_corners_ )"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "ComputerVisionChallenge/main.cpp"
+            timestampString = "453823263.309828"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "44"
+            endingLineNumber = "44"
+            landmarkName = "drawGoodMatches( const Mat&amp; img1, const Mat&amp; img2, const std::vector&lt;KeyPoint&gt;&amp; keypoints1, const std::vector&lt;KeyPoint&gt;&amp; keypoints2, std::vector&lt;DMatch&gt;&amp; matches, std::vector&lt;Point2f&gt;&amp; scene_corners_ )"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "ComputerVisionChallenge/main.cpp"
+            timestampString = "453824482.521522"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "47"
+            endingLineNumber = "47"
+            landmarkName = "drawGoodMatches( const Mat&amp; img1, const Mat&amp; img2, const std::vector&lt;KeyPoint&gt;&amp; keypoints1, const std::vector&lt;KeyPoint&gt;&amp; keypoints2, std::vector&lt;DMatch&gt;&amp; matches, std::vector&lt;Point2f&gt;&amp; scene_corners_ )"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "ComputerVisionChallenge/main.cpp"
+            timestampString = "453823275.302392"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "37"
+            endingLineNumber = "37"
+            landmarkName = "drawGoodMatches( const Mat&amp; img1, const Mat&amp; img2, const std::vector&lt;KeyPoint&gt;&amp; keypoints1, const std::vector&lt;KeyPoint&gt;&amp; keypoints2, std::vector&lt;DMatch&gt;&amp; matches, std::vector&lt;Point2f&gt;&amp; scene_corners_ )"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "ComputerVisionChallenge/main.cpp"
+            timestampString = "453832787.556886"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "97"
+            endingLineNumber = "97"
+            landmarkName = "drawGoodMatches( const Mat&amp; img1, const Mat&amp; img2, const std::vector&lt;KeyPoint&gt;&amp; keypoints1, const std::vector&lt;KeyPoint&gt;&amp; keypoints2, std::vector&lt;DMatch&gt;&amp; matches, std::vector&lt;Point2f&gt;&amp; scene_corners_ )"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
 </Bucket>

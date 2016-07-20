@@ -29,34 +29,10 @@ int selected = 0;
 int k = 0;
 Mat image, imageClone, imageROI;
 
-const int LOOP_NUM = 10;
-const int GOOD_PTS_MAX = 40;
-const float GOOD_PORTION = 0.15f;
+//const int LOOP_NUM = 10;
+const int GOOD_PTS_MAX = 30;
+const float GOOD_PORTION = 0.1f;
 
-struct SURFDetector
-{
-    Ptr<Feature2D> surf;
-    SURFDetector(double hessian = 800.0)
-    {
-        surf = SURF::create(hessian);
-    }
-    template<class T>
-    void operator()(const T& in, const T& mask, std::vector<cv::KeyPoint>& pts, T& descriptors, bool useProvided = false)
-    {
-        surf->detectAndCompute(in, mask, pts, descriptors, useProvided);
-    }
-};
-
-template<class KPMatcher>
-struct SURFMatcher
-{
-    KPMatcher matcher;
-    template<class T>
-    void match(const T& in1, const T& in2, std::vector<cv::DMatch>& matches)
-    {
-        matcher.match(in1, in2, matches);
-    }
-};
 
 static Mat drawGoodMatches(
                            const Mat& img1,
@@ -67,6 +43,7 @@ static Mat drawGoodMatches(
                            std::vector<Point2f>& scene_corners_
                            )
 {
+    
     //-- Sort matches and preserve top 10% matches
     std::sort(matches.begin(), matches.end());
     std::vector< DMatch > good_matches;
@@ -80,6 +57,7 @@ static Mat drawGoodMatches(
     }
     std::cout << "\nMax distance: " << maxDist << std::endl;
     std::cout << "Min distance: " << minDist << std::endl;
+    std::cout << "Good Matches Size: " << good_matches.size() << std::endl;
     
     std::cout << "Calculating homography using " << ptsPairs << " point pairs." << std::endl;
     
@@ -109,63 +87,29 @@ static Mat drawGoodMatches(
     std::vector<Point2f> scene_corners(4);
     
     Mat H = findHomography( obj, scene, RANSAC );
-    perspectiveTransform( obj_corners, scene_corners, H);
     
-    scene_corners_ = scene_corners;
+    if (!H.empty())
+    {
+        perspectiveTransform( obj_corners, scene_corners, H);
+        
+        //-- Draw lines between the corners (the mapped object in the scene - image_2 )
+        line( img_matches,
+             scene_corners[0] + Point2f( (float)img1.cols, 0), scene_corners[1] + Point2f( (float)img1.cols, 0),
+             Scalar( 0, 255, 0), 2, LINE_AA );
+        line( img_matches,
+             scene_corners[1] + Point2f( (float)img1.cols, 0), scene_corners[2] + Point2f( (float)img1.cols, 0),
+             Scalar( 0, 255, 0), 2, LINE_AA );
+        line( img_matches,
+             scene_corners[2] + Point2f( (float)img1.cols, 0), scene_corners[3] + Point2f( (float)img1.cols, 0),
+             Scalar( 0, 255, 0), 2, LINE_AA );
+        line( img_matches,
+             scene_corners[3] + Point2f( (float)img1.cols, 0), scene_corners[0] + Point2f( (float)img1.cols, 0),
+             Scalar( 0, 255, 0), 2, LINE_AA );
+    } else std::cout << "findHomography failed " << minDist << std::endl;
     
-    //-- Draw lines between the corners (the mapped object in the scene - image_2 )
-    line( img_matches,
-         scene_corners[0] + Point2f( (float)img1.cols, 0), scene_corners[1] + Point2f( (float)img1.cols, 0),
-         Scalar( 0, 255, 0), 2, LINE_AA );
-    line( img_matches,
-         scene_corners[1] + Point2f( (float)img1.cols, 0), scene_corners[2] + Point2f( (float)img1.cols, 0),
-         Scalar( 0, 255, 0), 2, LINE_AA );
-    line( img_matches,
-         scene_corners[2] + Point2f( (float)img1.cols, 0), scene_corners[3] + Point2f( (float)img1.cols, 0),
-         Scalar( 0, 255, 0), 2, LINE_AA );
-    line( img_matches,
-         scene_corners[3] + Point2f( (float)img1.cols, 0), scene_corners[0] + Point2f( (float)img1.cols, 0),
-         Scalar( 0, 255, 0), 2, LINE_AA );
     return img_matches;
 }
 
-// This function gets called whenever there is a mouse event -- any real execution is limited by one object selection event unless specified by user to redo selection by pressing the space bar
-static void onMouse( int event, int x, int y, int, void* )
-{
-    if( trackObject == 0 )
-    {
-        // Calculates ROI measurements and filters selection area
-        if( selectObject )
-        {
-            selection.x = MIN(x, origin.x);
-            selection.y = MIN(y, origin.y);
-            selection.width = std::abs(x - origin.x);
-            selection.height = std::abs(y - origin.y);
-            
-            selection &= Rect(0, 0, image.cols, image.rows);
-        }
-
-        switch( event )
-        {
-            // Stores points of mouseclick (into a point) and selection points (into a rect)
-            case EVENT_LBUTTONDOWN:
-                origin = Point(x,y);
-                selection = Rect(x,y,0,0);
-                selectObject = true;
-                break;
-            case EVENT_LBUTTONUP:
-                selectObject = false;
-                
-                if( selection.width > 0 && selection.height > 0 )
-                {
-                    trackObject = -1;
-                    imageROI = imageClone(selection);    // "Snapshots" ROI & displays snapshot
-                    imshow("ROI", imageROI);
-                }
-                break;
-        }
-    }
-}
 
 
 int main (void)
@@ -174,59 +118,58 @@ int main (void)
     // Starts webcam and services
     VideoCapture cap(0);
     Mat frame;
-    namedWindow( "Camera Feed", 0 );
-    setMouseCallback( "Camera Feed", onMouse, 0 );
+    namedWindow( "Camera Feed", WINDOW_AUTOSIZE );
+//    setMouseCallback( "Camera Feed", onMouse, 0 );
+    
+    // declare input/output
+    std::vector<KeyPoint> keypoints1, keypoints2;
+    
+    cv::Ptr<Feature2D> f2d = xfeatures2d::SURF::create();
+    Mat img_matches;
+    
+    imageROI = imread( "/Users/Jessica/Documents/CompVi/CompVi/sample.jpeg", CV_LOAD_IMAGE_GRAYSCALE );
+    resize(imageROI, imageROI, Size(imageROI.cols/2, imageROI.rows/2));
+    
+    if( !imageROI.data )
+    {
+        std::cout<< "Error reading object " << std::endl;
+        return -1;
+    }
     
     // Infinite looooooop to loop through camera frames
     for(;;)
     {
-        cap >> image;   // Stores camera frame into Mat image
-        if( image.empty() ) break;
-
+        cap >> frame;   // Stores camera frame into Mat image
+        if( frame.empty() ) break;
         
-        if( selectObject && selection.width > 0 && selection.height > 0 )
-        {
-
-            imageClone = image.clone();
-            rectangle(image, selection, Scalar(255, 0, 0), 2, 8, 0); // Draws rectangle around ROI
+        // Grayscales and resize camera frame
+        cvtColor(frame, image, CV_RGB2GRAY);
+        resize(image, image, Size(image.cols/2, image.rows/2));
+        
+        // Detect the keypoints:
+        f2d->detect( image, keypoints1 );
+        f2d->detect( imageROI, keypoints2 );
+        
+        // Calculate descriptors (feature vectors)
+        Mat descriptors_1, descriptors_2;
+        f2d->compute( image, keypoints1, descriptors_1 );
+        f2d->compute( imageROI, keypoints2, descriptors_2 );
+        
+        // Matching descriptor vectors using BFMatcher :
+        std::vector<DMatch> matches;
+        FlannBasedMatcher matcher;
+        matcher.match( descriptors_1, descriptors_2, matches );
             
-            printf("%d %d %d %d\n", selection.x, selection.y, selection.width, selection.height);
+        std::vector<Point2f> corner;
+        if (matches.size() > 0 && keypoints1.size() > 0 && keypoints2.size() > 0)
+        {
+            std::cout << "Found Matches" << std::endl;
+            img_matches = drawGoodMatches(image, imageROI, keypoints1, keypoints2, matches, corner);
         }
         
-        if( !imageROI.empty())
-        {
-            // declare input/output
-            std::vector<KeyPoint> keypoints1, keypoints2;
-            std::vector<DMatch> matches;
-            
-            UMat _descriptors1, _descriptors2;
-            Mat descriptors1 = _descriptors1.getMat(ACCESS_RW),
-            descriptors2 = _descriptors2.getMat(ACCESS_RW);
-            
-            // instantiate detectors/matchers
-            SURFDetector surf;
-            
-            SURFMatcher<BFMatcher> matcher;
-            
-            
-            for (int i = 0; i <= LOOP_NUM; i++)
-            {
-                surf(image, Mat(), keypoints1, descriptors1);
-                surf(imageROI, Mat(), keypoints2, descriptors2);
-                matcher.match(descriptors1, descriptors2, matches);
-            }
-
-            std::cout << "FOUND " << keypoints1.size() << " keypoints on first image" << std::endl;
-            std::cout << "FOUND " << keypoints2.size() << " keypoints on second image" << std::endl;
-            
-            
-            std::vector<Point2f> corner;
-            Mat img_matches = drawGoodMatches(image, imageROI, keypoints1, keypoints2, matches, corner);
-            
-            //-- Show detected matches
-            
-            imshow("Camera Feed", img_matches);
-        } else imshow( "Camera Feed", image );
+        //-- Show detected matches
+        if ( !img_matches.empty() )
+            imshow("Results", img_matches);
         
         k = waitKey(10);
         

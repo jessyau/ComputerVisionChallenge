@@ -10,6 +10,8 @@
 	<string>ComputerVisionChallenge</string>
 	<key>IDESourceControlProjectOriginsDictionary</key>
 	<dict>
+		<key>169DE668D79E7291BFC09787F242671186A644CB</key>
+		<string>dev.qmast.ca:sailcode.git</string>
 		<key>91037FECB570E56B2A849C87CA85499B17B73E4A</key>
 		<string>https://github.com/jessyau/ComputerVisionChallenge.git</string>
 		<key>DE04DE2F7DEBE78586ED25CC854B6B7553F76B75</key>
@@ -19,6 +21,8 @@
 	<string>ComputerVisionChallenge.xcodeproj</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
+		<key>169DE668D79E7291BFC09787F242671186A644CB</key>
+		<string>../../../sailcode</string>
 		<key>91037FECB570E56B2A849C87CA85499B17B73E4A</key>
 		<string>../..</string>
 		<key>DE04DE2F7DEBE78586ED25CC854B6B7553F76B75</key>
@@ -47,6 +51,14 @@
 			<string>DE04DE2F7DEBE78586ED25CC854B6B7553F76B75</string>
 			<key>IDESourceControlWCCName</key>
 			<string>opencv</string>
+		</dict>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>169DE668D79E7291BFC09787F242671186A644CB</string>
+			<key>IDESourceControlWCCName</key>
+			<string>sailcode</string>
 		</dict>
 	</array>
 </dict>

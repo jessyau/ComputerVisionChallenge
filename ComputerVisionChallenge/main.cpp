@@ -109,11 +109,11 @@ static Mat drawGoodMatches(
     std::vector<Point2f> scene_corners(4);
     
     Mat H = findHomography( obj, scene, RANSAC );
-    perspectiveTransform( obj_corners, scene_corners, H);
+//    perspectiveTransform( obj_corners, scene_corners, H);
     
     scene_corners_ = scene_corners;
     
-    //-- Draw lines between the corners (the mapped object in the scene - image_2 )
+//    -- Draw lines between the corners (the mapped object in the scene - image_2 )
     line( img_matches,
          scene_corners[0] + Point2f( (float)img1.cols, 0), scene_corners[1] + Point2f( (float)img1.cols, 0),
          Scalar( 0, 255, 0), 2, LINE_AA );
@@ -181,8 +181,10 @@ int main (void)
     for(;;)
     {
         cap >> image;   // Stores camera frame into Mat image
+        
         if( image.empty() ) break;
-
+        
+        resize(image, image, Size(image.cols/3, image.rows/3));
         
         if( selectObject && selection.width > 0 && selection.height > 0 )
         {

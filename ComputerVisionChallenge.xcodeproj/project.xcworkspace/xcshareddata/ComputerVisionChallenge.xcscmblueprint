@@ -1,0 +1,37 @@
+{
+  "DVTSourceControlWorkspaceBlueprintPrimaryRemoteRepositoryKey" : "91037FECB570E56B2A849C87CA85499B17B73E4A",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyRepositoryLocationsKey" : {
+
+  },
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey" : {
+    "91037FECB570E56B2A849C87CA85499B17B73E4A" : 0,
+    "169DE668D79E7291BFC09787F242671186A644CB" : 0,
+    "DE04DE2F7DEBE78586ED25CC854B6B7553F76B75" : 0
+  },
+  "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "6794B2C2-2FA3-417C-8A7D-5589133B61CF",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
+    "91037FECB570E56B2A849C87CA85499B17B73E4A" : "ComputerVisionChallenge",
+    "169DE668D79E7291BFC09787F242671186A644CB" : "sailcode",
+    "DE04DE2F7DEBE78586ED25CC854B6B7553F76B75" : "opencv"
+  },
+  "DVTSourceControlWorkspaceBlueprintNameKey" : "ComputerVisionChallenge",
+  "DVTSourceControlWorkspaceBlueprintVersion" : 204,
+  "DVTSourceControlWorkspaceBlueprintRelativePathToProjectKey" : "ComputerVisionChallenge.xcodeproj",
+  "DVTSourceControlWorkspaceBlueprintRemoteRepositoriesKey" : [
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "dev.qmast.ca:sailcode.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "169DE668D79E7291BFC09787F242671186A644CB"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/jessyau\/ComputerVisionChallenge.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "91037FECB570E56B2A849C87CA85499B17B73E4A"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/Itseez\/opencv.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "DE04DE2F7DEBE78586ED25CC854B6B7553F76B75"
+    }
+  ]
+}

@@ -94,16 +94,16 @@ static Mat drawGoodMatches(
         
         //-- Draw lines between the corners (the mapped object in the scene - image_2 )
         line( img_matches,
-             scene_corners[0] + Point2f( (float)img1.cols, 0), scene_corners[1] + Point2f( (float)img1.cols, 0),
+             scene_corners[0] + Point2f(img1.cols, 0), scene_corners[1] + Point2f(img1.cols, 0),
              Scalar( 0, 255, 0), 2, LINE_AA );
         line( img_matches,
-             scene_corners[1] + Point2f( (float)img1.cols, 0), scene_corners[2] + Point2f( (float)img1.cols, 0),
+             scene_corners[1] + Point2f(img1.cols, 0), scene_corners[2] + Point2f(img1.cols, 0),
              Scalar( 0, 255, 0), 2, LINE_AA );
         line( img_matches,
-             scene_corners[2] + Point2f( (float)img1.cols, 0), scene_corners[3] + Point2f( (float)img1.cols, 0),
+             scene_corners[2] + Point2f(img1.cols, 0), scene_corners[3] + Point2f(img1.cols, 0),
              Scalar( 0, 255, 0), 2, LINE_AA );
         line( img_matches,
-             scene_corners[3] + Point2f( (float)img1.cols, 0), scene_corners[0] + Point2f( (float)img1.cols, 0),
+             scene_corners[3] + Point2f(img1.cols, 0), scene_corners[0] + Point2f(img1.cols, 0),
              Scalar( 0, 255, 0), 2, LINE_AA );
     } else std::cout << "findHomography failed " << minDist << std::endl;
     
